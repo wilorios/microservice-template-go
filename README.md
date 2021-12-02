@@ -11,28 +11,28 @@ This project is a set of ideas for implementing a microservice template in Go, I
 
 # Go Directories   
 
-microservice-name
-├── cmd <br />
-|   ├── microservice-name-cli
-|   |    └── main.go
-|   ├── microservice-name-api
-|   |    └── main.go
-├── internal/
-|   ├── package01
-|   |    ├── file01.go
-|   |    └── file02.go
-|   ├── package02
-|   |    ├── file01.go
-|   |    └── file02.go
-├── pkg/
-|   ├── library01
-|   |    ├── file01.go
-|   |    └── file02.go
-|   ├── library02
-|   |    ├── file01.go
-|   |    └── file02.go
-├── LICENSE
-└── README.md
+microservice-name<br/>
+├── cmd<br/>
+|   ├── microservice-name-cli<br/>
+|   |    └── main.go<br/>
+|   ├── microservice-name-api<br/>
+|   |    └── main.go<br/>
+├── internal/<br/>
+|   ├── package01<br/>
+|   |    ├── file01.go<br/>
+|   |    └── file02.go<br/>
+|   ├── package02<br/>
+|   |    ├── file01.go<br/>
+|   |    └── file02.go<br/>
+├── pkg/<br/>
+|   ├── library01<br/>
+|   |    ├── file01.go<br/>
+|   |    └── file02.go<br/>
+|   ├── library02<br/>
+|   |    ├── file01.go<br/>
+|   |    └── file02.go<br/>
+├── LICENSE<br/>
+└── README.md<br/>
 
 
 Bibliography
