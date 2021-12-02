@@ -25,7 +25,7 @@ microservice-name
 |   ├── package02
 |   |    ├── file01.go
 |   |    └── file02.go
-├── pkg/<br/>
+├── pkg/
 |   ├── library01
 |   |    ├── file01.go
 |   |    └── file02.go
@@ -37,5 +37,5 @@ microservice-name
 </pre>
 
 Bibliography
-https://microservices.io/patterns/
-https://semver.org/
+- https://microservices.io/patterns/
+- https://semver.org/
