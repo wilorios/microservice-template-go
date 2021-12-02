@@ -12,7 +12,7 @@ This project is a set of ideas for implementing a microservice template in Go, I
 # Go Directories   
 
 microservice-name
-├── cmd
+├── cmd <br />
 |   ├── microservice-name-cli
 |   |    └── main.go
 |   ├── microservice-name-api
