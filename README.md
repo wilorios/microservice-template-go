@@ -3,7 +3,7 @@
 go project template for microservice architecture structure.
 
 # Description
-This project is a set of ideas for implementing a microservice template in Go, I'll try to 'ilustrate' some Microservice patterns like:
+This project is a set of ideas for implementing a microservice template with Go, I'll to ilustrate some Microservice patterns like:
 - Messaging style patterns (REST)
 - Reliable comunication patterns (circuit breaker)
 - Security patterns 
@@ -19,10 +19,20 @@ microservice-name
 |   ├── microservice-name-api
 |   |    └── main.go
 ├── internal/
-|   ├── package01
+|   ├── adapters
+|   |    ├── db
+|   |    |    ├── file01.go
+|   |    |    ├── file02.go
+|   |    └── web
+|   |    |    ├── file01.go
+|   |    |    ├── file02.go
+|   ├── application
 |   |    ├── file01.go
 |   |    └── file02.go
-|   ├── package02
+|   ├── configurations
+|   |    ├── file01.go
+|   |    └── file02.go
+|   ├── model
 |   |    ├── file01.go
 |   |    └── file02.go
 ├── pkg/
@@ -32,7 +42,8 @@ microservice-name
 |   ├── library02
 |   |    ├── file01.go
 |   |    └── file02.go
-├── LICENSE
+├── go.mod
+├── go.sum
 └── README.md
 </pre>
 
