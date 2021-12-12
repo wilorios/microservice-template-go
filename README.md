@@ -9,32 +9,29 @@ This project is a set of ideas for implementing a microservice template with Go,
 - Security patterns 
 - Cross-cutting concerns patterns
 
+# Dependencies:
+* [**Gin Gonic**](https://github.com/gin-gonic/gin)
+
 # Go Directories   
 
 <pre>
 microservice-name
 ├── cmd
-|   ├── microservice-name-cli
-|   |    └── main.go
-|   ├── microservice-name-api
+|   ├── service
 |   |    └── main.go
 ├── internal/
-|   ├── adapters
-|   |    ├── db
-|   |    |    ├── file01.go
-|   |    |    ├── file02.go
-|   |    └── web
-|   |    |    ├── file01.go
-|   |    |    ├── file02.go
 |   ├── application
-|   |    ├── file01.go
-|   |    └── file02.go
+|   |    └── app.go
 |   ├── configurations
-|   |    ├── file01.go
-|   |    └── file02.go
-|   ├── model
-|   |    ├── file01.go
-|   |    └── file02.go
+|   |    └── setup.go
+|   ├── controller
+|   |    └── controller.go
+|   ├── entity
+|   |    └── entity.go
+|   ├── routes
+|   |    └── routes.go
+|   ├── service
+|   |    └── service.go
 ├── pkg/
 |   ├── library01
 |   |    ├── file01.go

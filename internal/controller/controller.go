@@ -1,3 +1,5 @@
+//Package controller provides functions to translate incoming request
+//into outcoming response
 package controller
 
 import (
@@ -6,28 +8,32 @@ import (
 	"github.com/wilorios/microservice-template-go/internal/service"
 )
 
-type XController interface {
-	FindAll() []entity.XEntity
-	Save(ctx *gin.Context) entity.XEntity
+type PersonController interface {
+	Save(ctx *gin.Context) entity.Person
+	FindAll() []entity.Person
 }
 
-type controller struct {
-	service service.XService
+type personController struct {
+	personService service.PersonService
 }
 
-func New(ser service.XService) XController {
-	return &controller{
-		service: ser,
+//New function create a new controller
+func New(ser service.PersonService) PersonController {
+	return &personController{
+		personService: ser,
 	}
 }
 
-func (c *controller) FindAll() []entity.XEntity {
-	return c.service.FindAll()
+//FindAll function search all the entity person calling the service
+func (c *personController) FindAll() []entity.Person {
+	return c.personService.FindAll()
 }
 
-func (c *controller) Save(ctx *gin.Context) entity.XEntity {
-	var e entity.XEntity
+//Save function get the request and bind to entity and call the service
+//to save the data
+func (c *personController) Save(ctx *gin.Context) entity.Person {
+	var e entity.Person
 	ctx.BindJSON(&e)
-	c.service.Save(e)
+	c.personService.Save(e)
 	return e
 }

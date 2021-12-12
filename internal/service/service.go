@@ -1,27 +1,29 @@
+//Package service provides code modularity, 
+//it has the business logic and rules which in turn calls the entities
 package service
 
 import "github.com/wilorios/microservice-template-go/internal/entity"
 
-type XService interface {
-	Save(entity.XEntity) entity.XEntity
-	FindAll() []entity.XEntity
+type PersonService interface {
+	Save(entity.Person) entity.Person
+	FindAll() []entity.Person
 }
 
-type xService struct {
-	entities []entity.XEntity
+type personService struct {
+	entities []entity.Person
 }
 
-func New() XService {
-	return &xService{
-		entities: []entity.XEntity{},
+func New() PersonService {
+	return &personService{
+		entities: []entity.Person{},
 	}
 }
 
-func (ser *xService) Save(ent entity.XEntity) entity.XEntity {
+func (ser *personService) Save(ent entity.Person) entity.Person {
 	ser.entities = append(ser.entities, ent)
 	return ent
 }
 
-func (ser *xService) FindAll() []entity.XEntity {
+func (ser *personService) FindAll() []entity.Person {
 	return ser.entities
 }

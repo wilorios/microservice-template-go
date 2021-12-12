@@ -1,3 +1,4 @@
+//Package configurations provides functions to load the parameters to start the app
 package configurations
 
 import (

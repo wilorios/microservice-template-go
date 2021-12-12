@@ -1,3 +1,5 @@
+//Package routes has the Gin web server Engine  instance and
+//the routes of the ms solution
 package routes
 
 import (
@@ -10,24 +12,23 @@ import (
 )
 
 var (
-	xService    service.XService       = service.New()
-	xController controller.XController = controller.New(xService)
+	personService    service.PersonService       = service.New()
+	personController controller.PersonController = controller.New(personService)
 )
 
-// startWebServer starts the web server.
+//SetupRouter start the gin Web Server with the routes.
 func SetupRouter(conf configurations.Application) {
 	log.Println("msg", "starting http server", "http:", conf.Port)
 
 	server := gin.Default()
 
-	server.GET("/microservice", func(ctx *gin.Context) {
-		ctx.JSON(200, xController.FindAll())
+	server.GET("/person", func(ctx *gin.Context) {
+		ctx.JSON(200, personController.FindAll())
 	})
 
-	server.POST("/microservice", func(ctx *gin.Context) {
-		ctx.JSON(200, xController.Save(ctx))
+	server.POST("/person", func(ctx *gin.Context) {
+		ctx.JSON(200, personController.Save(ctx))
 	})
 
 	server.Run(":" + conf.Port)
-	//return server
 }

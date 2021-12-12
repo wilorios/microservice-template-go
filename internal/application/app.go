@@ -1,3 +1,4 @@
+//Package application provides functions to start/load the app
 package application
 
 import (
@@ -83,6 +84,7 @@ func (i *Instance) startWebServer(eventStream chan<- Event) {
 	}()
 }
 
+// loadConfiguration, read the config of the application and load this parameters
 func (i *Instance) loadConfiguration() error {
 	applicationSetUp, err := configurations.Load()
 	if err != nil {

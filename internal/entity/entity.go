@@ -1,6 +1,7 @@
+//Package entity has the structs that represents the problem domain
 package entity
 
-type XEntity struct {
+type Person struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
 }
