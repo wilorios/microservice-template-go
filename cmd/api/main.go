@@ -1,26 +1,32 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/wilorios/microservice-template-go/internal/controller"
-	"github.com/wilorios/microservice-template-go/internal/service"
+	"fmt"
+	"io"
+	"log"
+	"os"
+
+	"github.com/wilorios/microservice-template-go/internal/application"
 )
 
-var (
-	xService    service.XService       = service.New()
-	xController controller.XController = controller.New(xService)
+const (
+	// exitFail exit code to use when the program fails.
+	exitFail = 1
 )
 
 func main() {
-	server := gin.Default()
+	if err := run(os.Args, os.Stdout); err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err)
+		os.Exit(exitFail)
+	}
+	log.Println("the application has finished")
+}
 
-	server.GET("/microservice", func(ctx *gin.Context) {
-		ctx.JSON(200, xController.FindAll())
-	})
-
-	server.POST("/microservice", func(ctx *gin.Context) {
-		ctx.JSON(200, xController.Save(ctx))
-	})
-
-	server.Run(":8080")
+func run(args []string, stdouot io.Writer) error {
+	newApplication := application.New(args)
+	if err := newApplication.Start(); err != nil {
+		log.Println("fatal", err)
+		return err
+	}
+	return nil
 }
