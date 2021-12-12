@@ -8,15 +8,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/gin-gonic/gin"
 	"github.com/wilorios/microservice-template-go/internal/configurations"
-	"github.com/wilorios/microservice-template-go/internal/controller"
-	"github.com/wilorios/microservice-template-go/internal/service"
-)
-
-var (
-	xService    service.XService       = service.New()
-	xController controller.XController = controller.New(xService)
+	"github.com/wilorios/microservice-template-go/internal/routes"
 )
 
 // Instance defines an application.
@@ -83,20 +76,7 @@ func (i *Instance) listenToOSSignal(eventStream chan<- Event) {
 // startWebServer starts the web server.
 func (i *Instance) startWebServer(eventStream chan<- Event) {
 	go func() {
-		log.Println("msg", "starting http server", "http:", i.configuration.Port)
-
-		server := gin.Default()
-
-		server.GET("/microservice", func(ctx *gin.Context) {
-			ctx.JSON(200, xController.FindAll())
-		})
-
-		server.POST("/microservice", func(ctx *gin.Context) {
-			ctx.JSON(200, xController.Save(ctx))
-		})
-
-		server.Run(":" + i.configuration.Port)
-
+		routes.SetupRouter(i.configuration)
 		eventStream <- Event{
 			Message: "web server was ended",
 		}
