@@ -12,8 +12,8 @@ import (
 )
 
 var (
-	personService    service.PersonService       = service.New()
-	personController controller.PersonController = controller.New(personService)
+	personService    service.PersonServ         = *service.New()
+	personController controller.PersonControlle = *controller.New(personService)
 )
 
 //SetupRouter start the gin Web Server with the routes.
