@@ -47,3 +47,9 @@ microservice-name
 Bibliography
 - https://microservices.io/patterns/
 - https://semver.org/
+
+Docker commands
+- docker build -t microservice-person .
+- docker images
+- docker run -p 8080:8080 microservice-person
+- docker images
